@@ -63,6 +63,7 @@ class XTSSubsystemAdd extends AbstractBoottimeAddStepHandler {
     private static final String[] WAR_DEPLOYMENT_NAMES = {
             "ws-c11.war",
             "ws-t11-coordinator.war",
+            "ws-t11-synchronous-coordinator.war",
             "ws-t11-participant.war",
             "ws-t11-client.war",
     };
@@ -130,6 +131,10 @@ class XTSSubsystemAdd extends AbstractBoottimeAddStepHandler {
                     new EndpointInfo[]{
                             new EndpointInfo("com.arjuna.webservices11.wsat.sei.CompletionInitiatorPortTypeImpl", "CompletionInitiatorService"),
                             new EndpointInfo("com.arjuna.webservices11.wsarjtx.sei.TerminationParticipantPortTypeImpl", "TerminationParticipantService")
+                    }),
+            new ContextInfo("ws-t11-synchronous-coordinator",
+                    new EndpointInfo[] {
+                            new EndpointInfo("com.arjuna.webservices11.wsba.sei.BusinessAgreementWithParticipantCompletionSynchronousCoordinatorPortTypeImpl", "BusinessAgreementWithParticipantCompletionSynchronousCoordinatorService")
                     })
     };
 
